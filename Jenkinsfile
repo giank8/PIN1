@@ -15,7 +15,6 @@ pipeline {
           mkdir -p webapp
           mv Dockerfile /webapp
           cd webapp/
-          cd Dockerfile
           docker build -t testapp .
              '''  
         }
