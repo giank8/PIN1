@@ -16,9 +16,7 @@ pipeline {
           mv Dockerfile webapp
           cd webapp
           docker build -t testapp .
-          mkdir -p app
-          mv package.json app
-             '''       
+          '''       
         }
     }
   
