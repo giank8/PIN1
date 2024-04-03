@@ -15,6 +15,7 @@ pipeline {
           mv Dockerfile webapp
           mv package.json webapp
           mv package-lock.json webapp
+          mv test webapp
           cd webapp
           docker build -t testapp .
           '''       
