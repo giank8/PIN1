@@ -31,7 +31,8 @@ pipeline {
    stage('Deploy Image') {
       steps{
         sh '''
-        docker tag testapp 127.0.0.1:5000/mguazzardo/testapp
+        docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW
+        docker tag testapp giank8/testapp:latest
         docker push giank8/testapp:latest   
         '''
         }
