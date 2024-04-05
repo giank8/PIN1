@@ -7,9 +7,7 @@ pipeline {
 
   environment {
     ARTIFACT_ID = "elbuo8/webapp:${env.BUILD_NUMBER}"
-    DOCKER_HUB_LOGIN_USR = credentials('docker_hub_user')
-    DOCKER_HUB_LOGIN_PSW = credentials('docker_hub_pass')
-  }
+    }
    stages {
    stage('Building image') {
       steps{
@@ -33,7 +31,6 @@ pipeline {
    stage('Deploy Image') {
       steps{
         sh '''
-        docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW
         docker tag testapp giank8/testapp:latest
         docker push giank8/testapp:latest   
         '''
